@@ -8,7 +8,7 @@ module Grape
         STRATEGY_CLASSES = {
           password: Grape::OAuth2::Strategies::Password,
           client_credentials: Grape::OAuth2::Strategies::ClientCredentials,
-          refresh_token: Grape::OAuth2::Strategies::RefreshToken
+          refresh_token: Grape::OAuth2::Strategies::RefreshToken,
           authorization_code: Grape::Oauth2::Strategies::AuthorizationCode 
         }.freeze
 
