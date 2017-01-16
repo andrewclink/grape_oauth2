@@ -8,6 +8,8 @@ gem 'rack-oauth2'
 gem 'activerecord'
 gem 'bcrypt'
 
+gem 'awesome_print'
+
 group :test do
   platforms :ruby, :mswin, :mswin64, :mingw, :x64_mingw do
     gem 'sqlite3'
