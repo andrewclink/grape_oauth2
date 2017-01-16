@@ -1,5 +1,3 @@
-require 'ap'
-
 module Grape
   module OAuth2
     module Strategies
