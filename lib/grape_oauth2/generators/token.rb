@@ -9,6 +9,7 @@ module Grape
           password: Grape::OAuth2::Strategies::Password,
           client_credentials: Grape::OAuth2::Strategies::ClientCredentials,
           refresh_token: Grape::OAuth2::Strategies::RefreshToken
+          authorization_code: Grape::Oauth2::Strategies::AuthorizationCode 
         }.freeze
 
         class << self
@@ -41,7 +42,10 @@ module Grape
           #
           def execute_default(request, response)
             strategy = find_strategy(request.grant_type) || request.invalid_grant!
-            response.access_token = strategy.process(request)
+            response.access_token = case strategy.method(:process).arity
+            when 1 then strategy.process(request)
+            when 2 then strategy.process(request, response)
+            end
           end
 
           # Returns Grape::OAuth2 strategy class by Grant Type.
