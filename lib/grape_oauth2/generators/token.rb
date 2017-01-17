@@ -28,10 +28,9 @@ module Grape
                 execute_default(request, response)
               end
             end
-
-            puts "generate_for got token: #{token.inspect}"
-            puts "generate_for response: #{response}"
-
+            
+            # The above code hasn't been called yet; it's assigned to a 
+            # variable @authenticator and called []
             Grape::OAuth2::Responses::Token.new(token.call(env))
           end
 
