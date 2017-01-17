@@ -19,7 +19,6 @@ module Grape
           #
           def generate_for(env, &_block)
             token = Rack::OAuth2::Server::Token.new do |request, response|
-              raise "Authenticator called"
               request.unsupported_grant_type! unless allowed_grants.include?(request.grant_type.to_s)
 
               if block_given?
@@ -30,7 +29,9 @@ module Grape
             end
             
             # The above code hasn't been called yet; it's assigned to a 
-            # variable @authenticator and called []
+            # variable @authenticator and called in Rack::OAuth2::Server::Token::AuthorizationCode.call
+            #   request = Request.new(env); response = Response.new(request)
+            #
             Grape::OAuth2::Responses::Token.new(token.call(env))
           end
 
