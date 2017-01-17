@@ -31,7 +31,8 @@ module Grape
             response.access_token = token
 
             puts "Assigned token to response: #{response}"
-            response
+            # response
+            token
           end
         end
       end
