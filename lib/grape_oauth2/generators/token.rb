@@ -29,7 +29,7 @@ module Grape
             end
 
             puts "generate_for got token: #{token.inspect}"
-            puts "generate_for access_token: #{response.access_token.inspect rescue "(exception)"}"
+            puts "generate_for response: #{response}"
 
             Grape::OAuth2::Responses::Token.new(token.call(env))
           end

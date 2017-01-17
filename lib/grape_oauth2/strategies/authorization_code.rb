@@ -30,6 +30,7 @@ module Grape
             puts "Generated bearer token: #{token}"
             response.access_token = token
 
+            puts "Assigned token to response: #{response}"
             response
           end
         end
