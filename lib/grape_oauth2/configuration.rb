@@ -30,6 +30,16 @@ module Grape
       attr_accessor :access_token_class_name, :access_grant_class_name,
                     :client_class_name, :resource_owner_class_name
 
+      def client_class_name=(classname)
+        puts "Set #{self} client classname: #{classname}"
+        @client_class_name = classname
+      end
+      
+      def client_class_name
+        puts "get #{self} client classname (#{@client_class_name})"
+        @client_class_name
+      end
+
       # Class name for the OAuth2 helper class that validates requested scopes against Access Token scopes
       #
       # @return [String] scopes validator class name

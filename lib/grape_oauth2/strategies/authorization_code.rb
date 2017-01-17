@@ -25,7 +25,10 @@ module Grape
             
             # resource owner can't be nil!
             access_token = config.access_token_class.create_for(client, nil, scopes_from(request))
-            response.access_token = expose_to_bearer_token(access_token)
+            puts "generated access token: #{access_token}"
+            token =  expose_to_bearer_token(access_token)
+            puts "Generated bearer token: #{token}"
+            response.access_token = token
 
             response
           end

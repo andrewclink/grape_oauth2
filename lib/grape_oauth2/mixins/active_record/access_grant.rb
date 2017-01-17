@@ -7,6 +7,7 @@ module Grape
         extend ActiveSupport::Concern
 
         included do
+          puts "Class name: #{Grape::OAuth2.config.client_class_name}"
           belongs_to :client, class_name: Grape::OAuth2.config.client_class_name,
                               foreign_key: :client_id
 
