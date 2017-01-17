@@ -8,6 +8,7 @@ module Grape
 
         included do
           has_many :access_tokens, class_name: Grape::OAuth2.config.access_token_class_name, foreign_key: :client_id
+          has_many :access_grants, class_name: Grape::OAuth2.config.access_grant_class_name, foreign_key: :client_id
 
           validates :key, :secret, presence: true
           validates :key, uniqueness: true
